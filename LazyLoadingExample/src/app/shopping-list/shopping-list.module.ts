@@ -9,6 +9,6 @@ import { ShoppingListComponent } from './shopping-list.component';
     CommonModule,
     ShoppingListRoutingModule
   ],
-  declarations: [ShoppingListComponent]
+  declarations: []
 })
 export class ShoppingListModule { }
