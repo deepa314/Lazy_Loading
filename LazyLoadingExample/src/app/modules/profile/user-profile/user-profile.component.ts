@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { Auth1Service } from 'src/app/core/services/auth1.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class UserProfileComponent implements AfterViewInit {
 
-  constructor(private aurhS: AuthService) { 
+  constructor(private aurhS: Auth1Service) { 
   }
 
   ngAfterViewInit(): void {
