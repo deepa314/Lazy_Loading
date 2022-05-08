@@ -1,32 +1,25 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
-import { CustomPreloader } from './custom-preloader';
+import { CommonModule } from '@angular/common';
+import { Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
+const routes: Route[] = [
   {
-    path:'home',component:HomeComponent
-  },
-  
-  {
-    path:'profile',loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule),
-    data: {preload: true}
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path:'shopping-list',
-    loadChildren:()=>import('./shopping-list/shopping-list.module').then(m=>m.ShoppingListModule)
-  },
-  {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'home'
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
- 
-];
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading})],
-  exports: [RouterModule],
-  providers:[CustomPreloader]
+  declarations: [HomeComponent],
+  imports: [
+    CommonModule, 
+    RouterModule.forRoot(routes)
+  ]
 })
 export class AppRoutingModule { }

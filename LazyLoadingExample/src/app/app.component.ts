@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'LazyLoadingExample';
+  title = 'Angular | Lazy Loading';
 
   ngOnInit(): void {
-    console.log("app.component.html");
   }
   
 }
