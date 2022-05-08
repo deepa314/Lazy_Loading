@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Route[] = [
   {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, 
-    RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes, {
+        useHash: true
+      })
   ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
