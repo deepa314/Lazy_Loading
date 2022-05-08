@@ -10,16 +10,16 @@ const routes: Route[] = [
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    redirectTo: 'home'
   }
 ]
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [],
   imports: [
     CommonModule, 
     RouterModule.forRoot(routes)
-  ]
+  ],
 })
 export class AppRoutingModule { }
