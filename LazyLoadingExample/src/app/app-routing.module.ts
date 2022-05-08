@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import { PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CustomPreloadStrategy } from './shared/preload/custom-preload';
 
 const routes: Route[] = [
   {
@@ -13,6 +14,13 @@ const routes: Route[] = [
     component: HomeComponent
   },
   {
+    path: 'users/:user_name',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+    data: {
+      preload: true
+    }
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
@@ -22,7 +30,9 @@ const routes: Route[] = [
   declarations: [],
   imports: [
       RouterModule.forRoot(routes, {
-        useHash: true
+        useHash: true,
+        // preloadingStrategy: PreloadAllModules
+        preloadingStrategy: CustomPreloadStrategy
       })
   ],
   exports: [RouterModule]
