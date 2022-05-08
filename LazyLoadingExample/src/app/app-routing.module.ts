@@ -11,6 +11,10 @@ const routes: Route[] = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ]
 
