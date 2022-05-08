@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CustomPreloadStrategy, PRELOADINJECTIBLES } from './shared/preload/custom-preload';
+import { CustomPreloadStrategy } from './shared/preload/custom-preload';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [...PRELOADINJECTIBLES],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
