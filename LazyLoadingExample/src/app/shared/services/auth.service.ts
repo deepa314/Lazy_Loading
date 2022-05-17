@@ -14,7 +14,7 @@ export class AuthService {
   constructor() { }
 
   login() {
-    this.currentUser['username'] = 'himanshu';
+    this.currentUser['username'] = 'deepa';
   }
 
   logout() {
