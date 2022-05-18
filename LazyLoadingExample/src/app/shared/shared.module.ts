@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SHAREDINJECTIBLES } from './share-injectibles';
-
-
+import { AuthService } from './services/auth.service';
+import { CustomPreloadStrategy } from './preload/custom-preload';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: [...SHAREDINJECTIBLES]
+  imports: [CommonModule],
+  providers: [AuthService, CustomPreloadStrategy],
 })
-export class SharedModule { }
+export class SharedModule {}
