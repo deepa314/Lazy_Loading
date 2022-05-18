@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { COREINJECTIBLES } from "./core.injectibles";
+import { Auth1Service } from "./services/auth1.service";
 
 @NgModule({
     imports: [CommonModule],
-    providers: [...COREINJECTIBLES]
+    providers: [Auth1Service]
 })
 export class CoreModule {
 

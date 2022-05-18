@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SHAREDINJECTIBLES } from './share-injectibles';
+import { CustomPreloadStrategy } from './preload/custom-preload';
 
 
 
@@ -9,6 +9,6 @@ import { SHAREDINJECTIBLES } from './share-injectibles';
   imports: [
     CommonModule
   ],
-  providers: [...SHAREDINJECTIBLES]
+  providers: [CustomPreloadStrategy]
 })
 export class SharedModule { }
