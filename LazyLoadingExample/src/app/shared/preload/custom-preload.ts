@@ -6,7 +6,7 @@ import { delay, flatMap, map } from 'rxjs/operators';
 Injectable()
 export class CustomPreloadStrategy implements PreloadingStrategy {
     preload(route: Route, fn: () => Observable<any>): Observable<any> {
-        return timer(1500).pipe(flatMap(_ => fn()))
+        return timer(100).pipe(flatMap(_ => fn()))
     }
 
     // preload(route: Route, fn: () => Observable<any>): Observable<any> {

@@ -21,6 +21,13 @@ const routes: Route[] = [
     }
   },
   {
+    path: 'dashboard',
+    loadChildren: () => import('./modules/charts/charts.module').then(m => m.ChartsDemoModule),
+    data: {
+      preload: true
+    }
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
@@ -31,7 +38,7 @@ const routes: Route[] = [
   imports: [
       RouterModule.forRoot(routes, {
         useHash: true,
-       // preloadingStrategy: PreloadAllModules
+      //  preloadingStrategy: PreloadAllModules
         preloadingStrategy: CustomPreloadStrategy
       })
   ],
