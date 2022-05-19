@@ -35,19 +35,26 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Bubble chart</h4>
-          <bubble-chart></bubble-chart>
+          <button mat-raised-button color="primary" (click)="showBubbleChart()"> Bubble Chart
+         </button>
         </div>
       </div>
-    </div>
+      </div>
+    
     <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Polar Area Chart</h4>
-          <polar-area-chart></polar-area-chart>
+          <button mat-raised-button color="primary" (click)="showpolarAreaChart()"> Polar Chart
+         </button>
+          <ng-container #dynamicComponent></ng-container>
         </div>
       </div>
     </div>
   </div>
+  
+
+ 
 
   <!-- <div class="row">
     <div class="col-lg-6 grid-margin stretch-card">

@@ -16,16 +16,16 @@ const routes: Route[] = [
   {
     path: 'users/:user_name',
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
-    data: {
-      preload: true
-    }
+    // data: {
+    //   preload: true
+    // }
   },
   {
     path: 'dashboard',
     loadChildren: () => import('./modules/charts/charts.module').then(m => m.ChartsDemoModule),
-    data: {
-      preload: true
-    }
+    // data: {
+    //   preload: true
+    // }
   },
   {
     path: '**',
@@ -39,7 +39,7 @@ const routes: Route[] = [
       RouterModule.forRoot(routes, {
         useHash: true,
       //  preloadingStrategy: PreloadAllModules
-        preloadingStrategy: CustomPreloadStrategy
+        // preloadingStrategy: CustomPreloadStrategy
       })
   ],
   exports: [RouterModule]

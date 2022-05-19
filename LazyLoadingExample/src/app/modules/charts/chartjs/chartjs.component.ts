@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { BubbleChartComponent } from '../bubble-chart/bubble-chart.component';
+import { PolarAreaChartComponent } from '../polar-area-chart/polar-area-chart.component';
 
 @Component({
   selector: 'app-chartjs',
@@ -6,6 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chartjs.component.scss']
 })
 export class ChartjsComponent implements OnInit {
+
+  @ViewChild('dynamicComponent', { read: ViewContainerRef }) dynamicComponent: any;
+
+  constructor(private factoryResolver:ComponentFactoryResolver) { }
+
+
+  showBubbleChart(){
+    this.clear();
+    const compFactory = this.factoryResolver.resolveComponentFactory(BubbleChartComponent);
+    const compRef = this.dynamicComponent.createComponent(compFactory);
+    
+  }
+
+  showpolarAreaChart(){
+    this.clear();
+    const compFactory = this.factoryResolver.resolveComponentFactory(PolarAreaChartComponent);
+    const compRef = this.dynamicComponent.createComponent(compFactory);
+
+  }
+
+
+  clear() {
+    this.dynamicComponent.clear();
+  }
+  
   lineChartData = [{
     label: '# of Votes',
     data: [10, 19, 3, 5, 2, 3],
@@ -210,9 +237,11 @@ export class ChartjsComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+
 
   ngOnInit() {
   }
+
+  
 
 }
