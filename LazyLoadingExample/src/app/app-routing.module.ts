@@ -28,6 +28,13 @@ const routes: Route[] = [
     }
   },
   {
+    path: 'load',
+    loadChildren: () => import('./modules/dynamic/dynamic.module').then(m => m.DynamicModule),
+    data: {
+      preload: true
+    }
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
@@ -39,7 +46,7 @@ const routes: Route[] = [
       RouterModule.forRoot(routes, {
         useHash: true,
       //  preloadingStrategy: PreloadAllModules
-        preloadingStrategy: CustomPreloadStrategy
+        // preloadingStrategy: CustomPreloadStrategy
       })
   ],
   exports: [RouterModule]
